@@ -1,5 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
+import { hot } from 'react-hot-loader';
+
 import style from './App.css';
 import Title from '../components/Title.js'
 import TodoList from '../components/TodoList.js'
@@ -8,7 +10,9 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data: []
+            data: [],
+            title: 'ToDoApp',
+            amount: 0
         };
     }
 
@@ -30,7 +34,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className={style.TodoApp}>
-                    <Title />
+                    <Title title={this.state.title} amount={this.state.amount}/>
                     <TodoList />
                 </div>
             </div>
@@ -38,4 +42,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default hot(module)(App);
