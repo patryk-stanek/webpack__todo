@@ -4,7 +4,8 @@ class Title extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            title: 'ToDoApp'
+            title: 'ToDoApp',
+            amount: 0
         }
     }
 
@@ -12,11 +13,7 @@ class Title extends React.Component {
         return (
             <div>
                 <h1>{this.state.title}</h1>
-                <h2>Task list:</h2>
-                <ul>
-                    <li>Task 1</li>
-                    <li>Task 2</li>
-                </ul>
+                <h2>Amount of tasks: {this.state.amount} </h2>
             </div>
         )
     }
