@@ -13,7 +13,7 @@ class Title extends React.Component {
         return (
             <div>
                 <h1>{this.state.title}</h1>
-                <h2>Amount of tasks: {this.state.amount} </h2>
+                <h2>Amount of tasks: {this.state.amount}</h2>
             </div>
         )
     }
