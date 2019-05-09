@@ -1,6 +1,10 @@
 import React from 'react';
 import style from './TodoList.css';
 
+const Item = props => (
+    <li onClick={() => props.remove(props.id)} key={props.id}><span>{props.id}</span>{props.text}</li>
+)
+
 class TodoList extends React.Component {
     constructor(props){
         super(props);
@@ -8,32 +12,34 @@ class TodoList extends React.Component {
             data: [
                 {
                     id: 1,
-                    text: 'clean room'
+                    text: 'Clean room'
                 },
                 {
                     id: 2,
-                    text: 'wash the dishes'
+                    text: 'Wash the dishes'
                 },
                 {
                     id: 3,
-                    text: 'feed my cat'
+                    text: 'Feed my cat'
                 }
             ]
-        }
-        this.remove = this.remove.bind(this);
+        };
     }
 
     remove(id) {
         console.log(id);
-        const remainder = this.state.data.filter(todo => todo.id !== id);
-        this.setState({data: remainder});
+        const index = this.state.data.filter(todo => todo.id !== id);
+        this.setState({data: index});
     }
 
     render() {
+        const xxx = this;
         return (
             <div>
                 <ul className={style.List}>
-                    {this.state.data.map(task => <li onClick={() => this.remove(task.id)} key={task.id}>{task.text}</li>)}
+                    {
+                        this.state.data.map((item) => <Item remove={this.remove.bind(this)}id={item.id} text={item.text} />)
+                    }
                 </ul>
             </div>
         )

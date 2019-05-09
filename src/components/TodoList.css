@@ -1,12 +1,34 @@
 .List {
-    color: red;
-    border: 1px solid red;
-    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: black;
+    font-size: 20px;
+    list-style: none;
 }
 
 .List li {
-    border: 1px solid green;
-    padding: 5px;
-    margin: 5px;
-    cursor: pointer
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.List span {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    border-radius: 2px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 15px;
+    margin-left: -5px;
 }
