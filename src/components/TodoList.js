@@ -33,7 +33,6 @@ class TodoList extends React.Component {
     }
 
     render() {
-        const xxx = this;
         return (
             <div>
                 <ul className={style.List}>
