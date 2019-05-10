@@ -1,9 +1,9 @@
 import React from 'react';
+import uuid from 'uuid';
 import style from './TodoList.css';
 
-const Item = props => (
-    <li onClick={() => props.remove(props.id)} key={props.id}><span>{props.id}</span>{props.text}</li>
-)
+import Todo from './Todo.js';
+import TodoForm from './TodoForm.js'
 
 class TodoList extends React.Component {
     constructor(props){
@@ -22,24 +22,37 @@ class TodoList extends React.Component {
                     id: 3,
                     text: 'Feed my cat'
                 }
-            ]
+            ],
+            index: 0,
         };
     }
 
     remove(id) {
-        console.log(id);
         const index = this.state.data.filter(todo => todo.id !== id);
         this.setState({data: index});
+    }
+
+    add(val){
+        if (val != '') {
+            const todo = {
+                id: uuid.v4(),
+                text: val,
+            };
+            const data = [...this.state.data, todo];
+            this.setState({data});
+        }
     }
 
     render() {
         return (
             <div>
+                <h2>Amount of tasks: {this.state.data.length}</h2>
                 <ul className={style.List}>
                     {
-                        this.state.data.map((item) => <Item remove={this.remove.bind(this)}id={item.id} text={item.text} />)
+                        this.state.data.map((item) => <Todo remove={this.remove.bind(this)}id={item.id} text={item.text} />)
                     }
                 </ul>
+                <TodoForm add={this.add.bind(this)} />
             </div>
         )
     }

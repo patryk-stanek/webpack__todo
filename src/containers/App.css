@@ -7,10 +7,15 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     text-align: center;
+}
+
+.TodoApp div {
+    width: 100%;
+    max-width: 800px;
 }
