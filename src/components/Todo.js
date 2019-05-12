@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Todo = props => (
-    <div>
+    <li key={props.id}>
         <span onClick={() => props.remove(props.id)}>╳</span>
-        <li key={props.id}>{props.text}</li>
-    </div>
+        <p>{props.text}</p>
+    </li>
 )
 
 export default Todo;
