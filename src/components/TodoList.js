@@ -49,7 +49,7 @@ class TodoList extends React.Component {
                 <h2>Amount of tasks: {this.state.data.length}</h2>
                 <ul className={style.List}>
                     {
-                        this.state.data.map((item) => <Todo remove={this.remove.bind(this)}id={item.id} text={item.text} />)
+                        this.state.data.map((item) => <Todo remove={this.remove.bind(this)}id={item.id} key={item.id} text={item.text} />)
                     }
                 </ul>
                 <TodoForm add={this.add.bind(this)} />
